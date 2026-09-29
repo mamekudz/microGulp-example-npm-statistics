@@ -1,0 +1,14 @@
+{
+	"start": "2026-09-01",
+	"end": "2026-09-07",
+	"package": "demo-pkg",
+	"downloads": [
+		{ "day": "2026-09-01", "downloads": 3 },
+		{ "day": "2026-09-02", "downloads": 5 },
+		{ "day": "2026-09-03", "downloads": 0 },
+		{ "day": "2026-09-04", "downloads": 4 },
+		{ "day": "2026-09-05", "downloads": 2 },
+		{ "day": "2026-09-06", "downloads": 4 },
+		{ "day": "2026-09-07", "downloads": 3 }
+	]
+}

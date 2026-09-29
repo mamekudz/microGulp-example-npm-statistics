@@ -1,0 +1,17 @@
+{
+	"packages": [
+		"gulp",
+		"gulp-mu-gulp-api",
+		"@babel/core"
+	],
+	"period": {
+		"days": 7
+	},
+	"fetch": {
+		"timeoutMs": 15000,
+		"retries": 2,
+		"concurrency": 3,
+		"retryDelayMs": 500
+	},
+	"outputDir": "reports"
+}

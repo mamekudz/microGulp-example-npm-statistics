@@ -1,0 +1,23 @@
+{
+	"name": "microgulp-example-npm-statistics",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Fetch and compare npm package download statistics with Gulp and optional µGulp dashboard output.",
+	"type": "module",
+	"engines": {
+		"node": ">=22"
+	},
+	"scripts": {
+		"test": "node --test tests/**/*.test.mjs",
+		"report": "gulp REPORT",
+		"report:offline": "gulp REPORT_OFFLINE",
+		"report:live": "gulp REPORT_LIVE"
+	},
+	"dependencies": {
+		"gulp-mu-gulp-api": "^0.5.0"
+	},
+	"devDependencies": {
+		"gulp": "^5.0.1"
+	},
+	"license": "MIT"
+}
