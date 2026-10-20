@@ -50,7 +50,7 @@ export function ParseUtcDate(_text) {
 }
 
 /**
- * Yesterday in UTC — the last calendar day that can already be complete.
+ * Yesterday in UTC - the last calendar day that can already be complete.
  * @param {Date} [_now]
  * @returns {string}
  */

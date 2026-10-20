@@ -45,7 +45,7 @@ test('offline demo report writes files and never replaces live errors', async ()
 	}
 });
 
-test('live failures stay failed — offline scenario is explicit only', async () => {
+test('live failures stay failed - offline scenario is explicit only', async () => {
 	let dir = mkdtempSync(join(tmpdir(), 'npm-stats-live-'));
 	try {
 		let fetchImpl = async () => ({

@@ -1,0 +1,7 @@
+{
+	"project": {
+		"title": "µGulp Example: npm Statistics",
+		"description": "µGulp Recipes - npm-statistics",
+		"logo": "./assets/microgulp-logo.png"
+	}
+}

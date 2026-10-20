@@ -1,0 +1,16 @@
+{
+	"releases": [
+		{
+			"main": 1,
+			"minor": 0,
+			"revision": 0,
+			"date": "2026-10-10 16:30",
+			"beta": false,
+			"info": [
+				"Added standalone recipe version validation and package synchronization.<context=\"release info\"/>",
+				"Added a distinct example project title and bundled microGulp logo.<context=\"release info\"/>",
+				"Added dashboard keyboard shortcuts with explicit macOS bindings and usage documentation.<context=\"release info\"/>"
+			]
+		}
+	]
+}

@@ -1,3 +1,5 @@
+import { CheckPackageVersions, GetVersionString } from './tools/RecipeRelease.mjs';
+CheckPackageVersions();
 // ===========================================
 // npm-statistics/gulpfile.mjs
 // Fetch, compare and present npm download statistics.
@@ -38,7 +40,8 @@ export async function REPORT() {
 	let config = LoadConfig('config.json');
 	return _RunMode(config.mode === 'offline' ? 'offline' : 'live');
 }
-REPORT.µDisplayName = 'Build download report<context="µDisplayName"/>'.i18xRegister();
+REPORT.µKeyBinding = { key: 'ctrl+shift+F1', mac: 'cmd+shift+F1' };
+REPORT.µDisplayName = 'Build download report V<recipeVersion/><context="µDisplayName"/>'.i18xRegister();
 REPORT.µDescription = 'Loads config.json, fetches or synthesizes download counts, compares equal periods, and writes JSON/CSV plus table/chart output.<context="µDescription"/>'.i18xRegister();
 REPORT.µTooltip = 'Uses config.mode when set; otherwise live npm API.<context="µTooltip"/>'.i18xRegister();
 REPORT.µIcon = '\uE90A';
@@ -51,7 +54,7 @@ export async function REPORT_LIVE() {
 	Log('Building LIVE npm download report…<context="task log"/>');
 	return _RunMode('live');
 }
-REPORT_LIVE.µDisplayName = 'Live npm report<context="µDisplayName"/>'.i18xRegister();
+REPORT_LIVE.µDisplayName = 'Live npm report V<recipeVersion/><context="µDisplayName"/>'.i18xRegister();
 REPORT_LIVE.µDescription = 'Fetches download ranges from api.npmjs.org for the configured packages and compares the previous equal-length UTC period.<context="µDescription"/>'.i18xRegister();
 REPORT_LIVE.µTooltip = 'Requires network access. Never falls back to demo data on failure.<context="µTooltip"/>'.i18xRegister();
 REPORT_LIVE.µIcon = '\uE90F';
@@ -65,13 +68,14 @@ export async function REPORT_OFFLINE() {
 	LogCallout({
 		variant: 'warning',
 		title: 'Offline demo',
-		message: 'Explicit offline mode — synthetic data only.',
+		message: 'Explicit offline mode - synthetic data only.',
 	});
 	return _RunMode('offline');
 }
-REPORT_OFFLINE.µDisplayName = 'Offline demo report<context="µDisplayName"/>'.i18xRegister();
+REPORT_OFFLINE.µKeyBinding = { key: 'ctrl+shift+F9', mac: 'cmd+shift+F9' };
+REPORT_OFFLINE.µDisplayName = 'Offline demo report V<recipeVersion/><context="µDisplayName"/>'.i18xRegister();
 REPORT_OFFLINE.µDescription = 'Runs the same comparison and export pipeline on synthetic fixture data. Use this without network access.<context="µDescription"/>'.i18xRegister();
-REPORT_OFFLINE.µTooltip = 'Marked offline — never used as a silent live fallback.<context="µTooltip"/>'.i18xRegister();
+REPORT_OFFLINE.µTooltip = 'Marked offline - never used as a silent live fallback.<context="µTooltip"/>'.i18xRegister();
 REPORT_OFFLINE.µIcon = '\uE916';
 REPORT_OFFLINE.µGroup = 'Reports<context="µGroup"/>'.i18xRegister();
 REPORT_OFFLINE.µOrder = 30;
@@ -95,7 +99,7 @@ export async function SHOW_CONFIG() {
 		],
 	});
 }
-SHOW_CONFIG.µDisplayName = 'Show configuration<context="µDisplayName"/>'.i18xRegister();
+SHOW_CONFIG.µDisplayName = 'Show configuration V<recipeVersion/><context="µDisplayName"/>'.i18xRegister();
 SHOW_CONFIG.µDescription = 'Prints the resolved package list, UTC periods and fetch settings from config.json.<context="µDescription"/>'.i18xRegister();
 SHOW_CONFIG.µIcon = '\uE914';
 SHOW_CONFIG.µGroup = 'Reports<context="µGroup"/>'.i18xRegister();
@@ -117,7 +121,7 @@ export async function RUN_TESTS() {
 	});
 	Log('Tests passed.<context="task log"/>');
 }
-RUN_TESTS.µDisplayName = 'Run tests<context="µDisplayName"/>'.i18xRegister();
+RUN_TESTS.µDisplayName = 'Run tests V<recipeVersion/><context="µDisplayName"/>'.i18xRegister();
 RUN_TESTS.µDescription = 'Executes the network-free node:test suite for periods, compare, fetch validation and CSV escaping.<context="µDescription"/>'.i18xRegister();
 RUN_TESTS.µIcon = '\uE90B';
 RUN_TESTS.µGroup = 'Quality<context="µGroup"/>'.i18xRegister();
@@ -126,3 +130,5 @@ RUN_TESTS.µExecutionConcurrency = false;
 RUN_TESTS.µPresentation = { icon: 'test' };
 
 export const µGroups = 'open';
+
+export const µI18xContext = { recipeVersion: GetVersionString() };

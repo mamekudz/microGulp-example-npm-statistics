@@ -176,7 +176,7 @@ export async function PresentReport(_report, _api) {
 		LogCallout({
 			variant: 'warning',
 			title: 'Offline demo mode',
-			message: 'Synthetic fixture data — not live npm downloads.',
+			message: 'Synthetic fixture data - not live npm downloads.',
 		});
 	}
 

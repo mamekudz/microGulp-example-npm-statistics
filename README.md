@@ -32,12 +32,12 @@ Copy `config.example.json` to `config.json` if you need a fresh config (a starte
 
 `config.json` keys:
 
-- `packages` — npm package names (scoped names supported, e.g. `@babel/core`)
-- `period.days` — inclusive UTC day count ending at yesterday UTC by default
-- `period.start` / `period.end` — optional explicit inclusive UTC dates (`YYYY-MM-DD`); `end` must be a **completed** UTC day (before today UTC)
+- `packages` - npm package names (scoped names supported, e.g. `@babel/core`)
+- `period.days` - inclusive UTC day count ending at yesterday UTC by default
+- `period.start` / `period.end` - optional explicit inclusive UTC dates (`YYYY-MM-DD`); `end` must be a **completed** UTC day (before today UTC)
 - `fetch.timeoutMs` / `retries` / `concurrency` / `retryDelayMs`
-- `outputDir` — report folder (default `reports/`, gitignored)
-- `mode` — optional `"live"` or `"offline"` (offline is explicit only)
+- `outputDir` - report folder (default `reports/`, gitignored)
+- `mode` - optional `"live"` or `"offline"` (offline is explicit only)
 
 Comparison period: the immediately preceding window of the same inclusive length.
 
@@ -66,7 +66,7 @@ Official npm download counts API (checked **2026-09-23**):
 - Timezone: **UTC** calendar days; start/end inclusive
 - History from **2015-01-10**; single-package queries limited to ~**18 months**
 - Scoped packages work on single-package URLs; **bulk comma lists do not support scoped packages**
-- Download counts are not unique users or installs — see npm’s precision blog linked from the docs
+- Download counts are not unique users or installs - see npm’s precision blog linked from the docs
 
 Missing days, unknown packages (HTTP 404), timeouts, rate limits (429) and invalid JSON are **never** turned into zero downloads. Percent change is `n/a` when the previous total is missing or when previous is `0` and current is non-zero.
 
@@ -80,8 +80,37 @@ Open this folder as a workspace (or start it from the µGulp main project **Exam
 
 ## License
 
-MIT for original example code — see [LICENSE](LICENSE).
+MIT for original example code - see [LICENSE](LICENSE).
 
 ## Interactive website
 
 The shared [examples collection website](https://github.com/mamekudz/microGulp-Examples) adds period selection, comparison charts, daily values and JSON/CSV downloads using this project's original report pipeline. Run `npm install` and `npm start` in the repository root, then open `http://127.0.0.1:9320/npm-statistics/`. Offline fixtures and live npm data are explicitly separated. No private product checkout is required.
+
+## Eigene Versionshistorie
+
+`RELEASES.json` ist die einzige Quelle der Beispielversion (neuester Eintrag zuerst). Englische Releasehinweise tragen `<context="release info"/>`; die Wörterbücher unter `i18x/gulp` enthalten die Sprachfassungen. Ein Eintrag bedeutet noch keine Veröffentlichungsfreigabe.
+
+`npm run release:check` prüft Versionen; `npm run release:sync` gleicht package.json und die Wurzel der Lockdatei ab. `npm run release:history -- --language=de-DE` zeigt die Historie. Die Prüfung läuft auch vor npm test.
+
+Für eine Änderung oben einen neuen Releaseeintrag ergänzen, Sprachfassungen nachziehen, synchronisieren, Tests ausführen und danach den geprüften Commit in article.json festhalten. Frühere Einträge erhalten. Ein Versionsbump veröffentlicht weder Paket noch Repository.
+
+## Projekttitel und Logo in µGulp
+
+Diesen Beispielordner als eigenen Workspace öffnen. `microgulp.config.json` zeigt **µGulp Example: npm Statistics** oberhalb der Taskliste. `project.title` und `project.description` lassen sich dort anpassen; `project.logo` verweist auf die mitgelieferte Datei `assets/microgulp-logo.png`. Der Pfad bleibt relativ zum Beispiel-Workspace. Die Projektkennung ist keine Gulpfile-Eigenschaft und verändert keine technischen Tasknamen. Bei mehreren Gulpfiles in demselben Workspace gilt derselbe Projekttitel.
+
+## Dashboard shortcuts
+
+- `REPORT`: Windows/Linux `Ctrl+Shift+F1`, macOS `Cmd+Shift+F1`.
+- `REPORT_OFFLINE`: Windows/Linux `Ctrl+Shift+F9`, macOS `Cmd+Shift+F9`.
+
+Focus the µGulp dashboard first. Shortcuts invoke the same task as a click, including any task form; they do not preselect or submit form values. Text-entry fields do not trigger task shortcuts. These are dashboard bindings, not global IDE shortcuts. If your IDE or operating system intercepts a combination, change `µKeyBinding` in the gulpfile. Some keyboards require Fn for function keys.
+
+```javascript
+REPORT.µKeyBinding = { key: 'ctrl+shift+F1', mac: 'cmd+shift+F1' };
+```
+
+<!-- blog-publication:start -->
+Artikel: [Deutsch](https://microgulp.dev/blogs/npm-statistics)
+
+Weitere Beispiele: [microGulp-Examples](https://github.com/mamekudz/microGulp-Examples).
+<!-- blog-publication:end -->
