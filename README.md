@@ -110,7 +110,7 @@ REPORT.µKeyBinding = { key: 'ctrl+shift+F1', mac: 'cmd+shift+F1' };
 ```
 
 <!-- blog-publication:start -->
-Artikel: [Deutsch](https://microgulp.dev/blogs/npm-statistics)
+Artikel: [Deutsch](https://microgulp.dev/de/blog/npm-statistics/)
 
 Weitere Beispiele: [microGulp-Examples](https://github.com/mamekudz/microGulp-Examples).
 <!-- blog-publication:end -->
